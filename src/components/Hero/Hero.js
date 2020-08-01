@@ -47,6 +47,8 @@ function Hero() {
 
         <h1 className="hero__description">{truncate(movie?.overview, 150)}</h1>
       </div>
+
+      <div className="hero--fadeBottom" />
     </header>
   );
 }
