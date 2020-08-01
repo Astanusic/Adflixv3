@@ -60,6 +60,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
         onSwiper={(swiper) => console.log(swiper)}
         className="row__posters"
         navigation
+        mousewheel
         pagination={{ clickable: true }}
       >
         {movies.map((movie) => (

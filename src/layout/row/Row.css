@@ -10,18 +10,18 @@
 .row__poster {
   object-fit: contain;
   width: 100%;
-  transition: transform ease-in-out 550ms;
+  transition: transform ease-in 250ms;
 }
 
 .row__poster:hover {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 .row__posterLarge:hover {
-  transform: scale(1.09);
+  transform: scale(1.05);
 }
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: #c70808 !important;
+  color: #fff !important;
 }
