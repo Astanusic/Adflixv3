@@ -34,6 +34,10 @@ function Row({ title, fetchUrl, isLargeRow }) {
     },
   };
 
+  const generateKey = (pre) => {
+    return `${pre}_${new Date().getTime()}`;
+  };
+
   const handleClick = (movie) => {
     if (trailerUrl) {
       setTrailerUrl("");
@@ -47,26 +51,22 @@ function Row({ title, fetchUrl, isLargeRow }) {
     }
   };
 
-  console.log(trailerUrl);
-
   return (
     <section className="row">
       <h2>{title}</h2>
 
       <Swiper
         spaceBetween={20}
-        slidesPerView={6}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        slidesPerView={5}
         className="row__posters"
         navigation
         mousewheel
         pagination={{ clickable: true }}
       >
         {movies.map((movie) => (
-          <SwiperSlide>
+          <SwiperSlide key={generateKey(Math.random() * 10)}>
             <Poster
-              key={movie.id}
+              key={generateKey(movie.id)}
               onClick={() => handleClick(movie)}
               className={`row__poster ${isLargeRow && "row__posterLarge"}`}
               imgSrc={`${TmdbImgBaseUrl}${
