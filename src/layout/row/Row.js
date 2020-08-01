@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { TmdbInstance, TmdbImgBaseUrl } from "../../utils/axios";
+import Poster from "../../components/Poster/Poster";
 import "./Row.css";
 
 function Row({ title, fetchUrl, isLargeRow }) {
@@ -24,10 +25,10 @@ function Row({ title, fetchUrl, isLargeRow }) {
         {/* multiple row_posters */}
 
         {movies.map((movie) => (
-          <img
+          <Poster
             key={movie.id}
             className={`row__poster ${isLargeRow && "row__posterLarge"}`}
-            src={`${TmdbImgBaseUrl}${
+            imgSrc={`${TmdbImgBaseUrl}${
               isLargeRow ? movie.poster_path : movie.backdrop_path
             }`}
             alt={movie.name}
