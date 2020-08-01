@@ -1,12 +1,14 @@
 import React from "react";
 import Row from "./layout/row/Row";
 import Hero from "./components/Hero/Hero";
+import Navbar from "./components/Navbar/Navbar";
 import requests from "./utils/request";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
+      <Navbar />
       <Hero />
       <Row
         title="NETFLIX ORIGINALS"
