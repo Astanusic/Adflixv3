@@ -10,8 +10,28 @@
   padding: 20px;
 }
 
+.row__posters::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  background-color: #444444;
+}
+
 .row__posters::-webkit-scrollbar {
-  display: none;
+  width: 6px;
+  height: 6px;
+  background-color: #444444;
+}
+
+.row__posters::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #d62929;
+  background-image: -webkit-linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent,
+    transparent
+  );
 }
 
 .row__poster {
