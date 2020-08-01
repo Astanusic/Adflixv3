@@ -6,7 +6,6 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <h1>Is it working ? </h1>
       <Row
         title="NETFLIX ORIGINALS"
         isLargeRow
