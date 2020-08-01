@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { TmdbInstance, TmdbImgBaseUrl } from "../../utils/axios";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Mousewheel } from "swiper";
+import SwiperCore, { Navigation } from "swiper";
 import Poster from "../../components/Poster/Poster";
 import YouTube from "react-youtube";
 import movieTrailer from "movie-trailer";
@@ -11,7 +11,7 @@ import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 
 // install Swiper components
-SwiperCore.use([Navigation, Mousewheel]);
+SwiperCore.use([Navigation]);
 
 function Row({ title, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = useState([]);
@@ -60,7 +60,6 @@ function Row({ title, fetchUrl, isLargeRow }) {
         slidesPerView={5}
         className="row__posters"
         navigation
-        mousewheel
         pagination={{ clickable: true }}
       >
         {movies.map((movie) => (
