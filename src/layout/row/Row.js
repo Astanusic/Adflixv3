@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { truncate } from "../../utils/truncate";
 import { TmdbInstance, TmdbImgBaseUrl } from "../../utils/axios";
+import requests from "../../utils/request";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 import Poster from "../../components/Poster/Poster";
@@ -10,6 +11,7 @@ import "./Row.css";
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
+import axios from "axios";
 
 // install Swiper components
 SwiperCore.use([Navigation]);
@@ -39,16 +41,38 @@ function Row({ title, fetchUrl, isLargeRow }) {
     return `${pre}_${new Date().getTime()}`;
   };
 
+  // const handleClick = (movie) => {
+  //   if (trailerUrl) {
+  //     setTrailerUrl("");
+  //   } else {
+  //     movieTrailer(movie?.name || "")
+  //       .then((url) => {
+  //         const urlParams = new URLSearchParams(new URL(url).search);
+  //         setTrailerUrl(urlParams.get("v"));
+  //       })
+  //       .catch((err) => console.log(err));
+  //   }
+  // };
+
+  async function fetchVideos(movie) {
+    const request = await axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${movie.id}${requests.featchVideos}`
+      )
+      .then((res) => {
+        setTrailerUrl(res.data.videos?.results[0].key);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }
+
   const handleClick = (movie) => {
     if (trailerUrl) {
       setTrailerUrl("");
     } else {
-      movieTrailer(movie?.name || "")
-        .then((url) => {
-          const urlParams = new URLSearchParams(new URL(url).search);
-          setTrailerUrl(urlParams.get("v"));
-        })
-        .catch((err) => console.log(err));
+      fetchVideos(movie);
     }
   };
 
