@@ -30,7 +30,11 @@ function Hero({ fetchUrl, hasDropDown, handleItemClick }) {
     height: "600",
     width: "60%",
     playerVars: {
+      modestbranding: 1,
       autoplay: 1,
+      loop: 1,
+      rel: 0,
+      fs: 0,
     },
   };
 
@@ -41,6 +45,7 @@ function Hero({ fetchUrl, hasDropDown, handleItemClick }) {
     } else {
       movieTrailer(`${movie?.title || movie?.name}`)
         .then((url) => {
+          console.log(url);
           const id = getYouTubeID(url);
           setTrailerUrl(id);
           console.log(id);
@@ -48,6 +53,8 @@ function Hero({ fetchUrl, hasDropDown, handleItemClick }) {
         .catch((err) => console.log(err));
     }
   };
+
+  console.log(trailerUrl);
 
   return (
     <header
@@ -78,11 +85,14 @@ function Hero({ fetchUrl, hasDropDown, handleItemClick }) {
 
         <h1 className="hero__description">{truncate(movie?.overview, 250)}</h1>
         {hasBeenClicked && (
-          <YouTube
-            className="youtube__player"
-            videoId={trailerUrl}
-            opts={opts}
-          />
+          <div className="youtube__container">
+            <YouTube
+              className="youtube__player"
+              videoId={trailerUrl}
+              opts={opts}
+            />
+            <div className="youtube__hide" />
+          </div>
         )}
       </div>
 

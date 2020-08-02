@@ -70,3 +70,18 @@
   transform: translateY(-50%);
   z-index: 9;
 }
+
+.youtube__container {
+  position: relative;
+}
+
+.youtube__hide {
+  position: absolute;
+  z-index: 11;
+  width: 60%;
+  height: 60px;
+  background: black;
+  top: 260px;
+  right: 50px;
+  transform: translateY(-50%);
+}
