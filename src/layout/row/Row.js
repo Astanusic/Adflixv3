@@ -92,7 +92,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
             {!isLargeRow && (
               <div className="row__movieBottomInfos">
                 <h5 className="row__movieTitle">
-                  {truncate(movie?.title, 30)}
+                  {truncate(movie?.title, 30) || truncate(movie?.name, 30)}
                 </h5>
                 <div className="row__notes">
                   <h5 className="row__movieNote">

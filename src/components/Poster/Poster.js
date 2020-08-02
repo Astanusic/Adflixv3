@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { truncate } from "../../utils/truncate";
 import "./Poster.css";
 
@@ -18,12 +20,30 @@ function Poster({ imgSrc, alt, className, onClick, movie, isLargeRow }) {
         className={`poster__image ${className}`}
       />
 
-      {isHover && isLargeRow ? (
-        <>
-          <p className="poster__title">{truncate(movie?.overview, 170)}</p>
-          <p className="poster__year ">{movie?.first_air_date}</p>
-        </>
-      ) : null}
+      {isHover &&
+        (isLargeRow ? (
+          <div className="poster__infos">
+            <p className="poster__title">{truncate(movie?.name, 50)}</p>
+            <p className="poster__overview">
+              {truncate(movie?.overview, 170) ||
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quasi"}
+            </p>
+            <div className="poster__notes">
+              <p className="poster__note">{Math.floor(movie?.vote_average)}</p>
+              <FontAwesomeIcon icon={faStar} size="1x" />
+            </div>
+          </div>
+        ) : (
+          <div className="poster__infos">
+            <p className="poster__title">
+              {truncate(movie?.title, 15) || truncate(movie?.name, 15)}
+            </p>
+            <p className="poster__overview">
+              {truncate(movie?.overview, 170) ||
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, quasi"}
+            </p>
+          </div>
+        ))}
     </div>
   );
 }
