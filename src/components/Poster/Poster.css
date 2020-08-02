@@ -1,0 +1,22 @@
+.poster {
+  position: relative;
+}
+
+.poster__image {
+  position: absolute;
+  z-index: 8;
+  transition: filter 450ms 0.5s;
+}
+
+.poster__image:hover {
+  filter: blur(15px);
+  z-index: 6;
+}
+
+.poster__title {
+  position: absolute;
+  top: 10%;
+  font-size: 1.2em;
+  z-index: 7;
+  pointer-events: none;
+}

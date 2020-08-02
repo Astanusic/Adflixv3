@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { truncate } from "../../utils/truncate";
 import { TmdbInstance, TmdbImgBaseUrl } from "../../utils/axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
@@ -66,13 +67,23 @@ function Row({ title, fetchUrl, isLargeRow }) {
           <SwiperSlide key={generateKey(Math.random() * 10)}>
             <Poster
               key={generateKey(movie.id)}
+              movie={movie}
               onClick={() => handleClick(movie)}
               className={`row__poster ${isLargeRow && "row__posterLarge"}`}
               imgSrc={`${TmdbImgBaseUrl}${
                 isLargeRow ? movie.poster_path : movie.backdrop_path
               }`}
               alt={movie.name}
+              isLargeRow={isLargeRow}
             />
+            {!isLargeRow && (
+              <div className="row__movieBottomInfos">
+                <h5 className="row__movieTitle">
+                  {truncate(movie?.title, 30)}
+                </h5>
+                <h5>{movie?.vote_average}</h5>
+              </div>
+            )}
           </SwiperSlide>
         ))}
       </Swiper>
