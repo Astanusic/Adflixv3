@@ -21,13 +21,13 @@ function Navbar() {
       <img className="nav__logo" src={Logo} alt="Logo" />
       <nav className="nav__links">
         <a className="nav__link" href="/">
-          Acceuil
+          Home
         </a>
         <a className="nav__link" href="/">
-          Films
+          Movies
         </a>
         <a className="nav__link" href="/">
-          Series
+          TV Shows
         </a>
       </nav>
     </div>
