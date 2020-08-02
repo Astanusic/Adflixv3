@@ -40,3 +40,21 @@
 .swiper-button-next {
   color: #fff !important;
 }
+
+.row__notes {
+  display: flex;
+  align-items: center;
+}
+
+.row__notes svg {
+  /* margin-right: 2px; */
+  height: 0.7rem;
+}
+
+.row__notes svg path {
+  fill: #eca500;
+}
+
+.row__movieNote {
+  color: #eca500;
+}

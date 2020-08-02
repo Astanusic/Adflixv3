@@ -20,8 +20,8 @@ function Poster({ imgSrc, alt, className, onClick, movie, isLargeRow }) {
 
       {isHover && isLargeRow ? (
         <>
-          <h5 className="poster__title">{truncate(movie?.overview, 170)}</h5>
-          <p className="poster__year">{movie?.release_date}</p>
+          <p className="poster__title">{truncate(movie?.overview, 170)}</p>
+          <p className="poster__year ">{movie?.first_air_date}</p>
         </>
       ) : null}
     </div>

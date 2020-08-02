@@ -7,6 +7,8 @@ import SwiperCore, { Navigation } from "swiper";
 import Poster from "../../components/Poster/Poster";
 import YouTube from "react-youtube";
 import movieTrailer from "movie-trailer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "./Row.css";
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
@@ -40,19 +42,6 @@ function Row({ title, fetchUrl, isLargeRow }) {
   const generateKey = (pre) => {
     return `${pre}_${new Date().getTime()}`;
   };
-
-  // const handleClick = (movie) => {
-  //   if (trailerUrl) {
-  //     setTrailerUrl("");
-  //   } else {
-  //     movieTrailer(movie?.name || "")
-  //       .then((url) => {
-  //         const urlParams = new URLSearchParams(new URL(url).search);
-  //         setTrailerUrl(urlParams.get("v"));
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }
-  // };
 
   async function fetchVideos(movie) {
     const request = await axios
@@ -105,7 +94,12 @@ function Row({ title, fetchUrl, isLargeRow }) {
                 <h5 className="row__movieTitle">
                   {truncate(movie?.title, 30)}
                 </h5>
-                <h5>{movie?.vote_average}</h5>
+                <div className="row__notes">
+                  <h5 className="row__movieNote">
+                    {Math.floor(movie?.vote_average)}
+                  </h5>
+                  <FontAwesomeIcon icon={faStar} size="1x" />
+                </div>
               </div>
             )}
           </SwiperSlide>
