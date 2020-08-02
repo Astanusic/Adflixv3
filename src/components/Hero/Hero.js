@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { TmdbInstance, TmdbImgBaseUrl } from "../../utils/axios";
+import { truncate } from "../../utils/truncate";
 import requests from "../../utils/request";
 import "./Hero.css";
 
@@ -18,10 +19,6 @@ function Hero() {
     }
     fetchData();
   }, []);
-
-  function truncate(str, n) {
-    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
-  }
 
   return (
     <header
