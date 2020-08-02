@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 import Poster from "../../components/Poster/Poster";
 import YouTube from "react-youtube";
+import getYouTubeID from "get-youtube-id";
 import movieTrailer from "movie-trailer";
 import "./Row.css";
 import "swiper/swiper.scss";
@@ -42,10 +43,11 @@ function Row({ title, fetchUrl, isLargeRow }) {
     if (trailerUrl) {
       setTrailerUrl("");
     } else {
-      movieTrailer(movie?.name || "")
+      movieTrailer(`${movie?.title || movie?.name}`)
         .then((url) => {
-          const urlParams = new URLSearchParams(new URL(url).search);
-          setTrailerUrl(urlParams.get("v"));
+          const id = getYouTubeID(url);
+          setTrailerUrl(id);
+          console.log(id);
         })
         .catch((err) => console.log(err));
     }
