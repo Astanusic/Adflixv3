@@ -5,6 +5,7 @@ import Movies from "./pages/movies/movies";
 import TvShows from "./pages/tv-shows/tv-shows";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
+require("dotenv").config();
 
 function App() {
   return (

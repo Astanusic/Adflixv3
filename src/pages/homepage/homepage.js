@@ -6,7 +6,7 @@ import requests from "../../utils/request";
 function Homepage() {
   return (
     <div>
-      <Hero />
+      <Hero fetchUrl={requests.fetchNetflixOriginals} />
       <Row
         title="NETFLIX ORIGINALS"
         isLargeRow
@@ -17,7 +17,6 @@ function Homepage() {
       <Row title="Action" fetchUrl={requests.fetchActionMovies} />
       <Row title="Comedy" fetchUrl={requests.fetchComedyMovies} />
       <Row title="Horror" fetchUrl={requests.fetchHorrorMovies} />
-      <Row title="Romantic" fetchUrl={requests.fetchRomanceMovies} />
       <Row title="Animation" fetchUrl={requests.fetchAnimMovies} />
     </div>
   );
