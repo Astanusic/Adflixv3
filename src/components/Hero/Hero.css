@@ -79,9 +79,9 @@
   position: absolute;
   z-index: 11;
   width: 60%;
-  height: 60px;
+  height: 65px;
   background: black;
-  top: 260px;
+  top: 268px;
   right: 50px;
   transform: translateY(-50%);
 }

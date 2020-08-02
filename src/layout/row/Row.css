@@ -1,6 +1,7 @@
 .row {
   color: white;
   cursor: pointer;
+  margin-left: 20px;
 }
 
 .row__posters {
