@@ -29,6 +29,7 @@
   padding-top: 1.8rem;
   max-width: 450px;
   height: 150px;
+  z-index: 9;
 }
 
 .hero__button {
@@ -60,4 +61,12 @@
     rgba(37, 37, 37, 0.61),
     #111
   );
+}
+
+.youtube__player {
+  position: absolute;
+  top: 40%;
+  right: 50px;
+  transform: translateY(-50%);
+  z-index: 9;
 }
